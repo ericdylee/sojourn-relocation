@@ -1,0 +1,13 @@
+{
+  "project": "SOJOURN KOREA",
+  "phase": "landing-renewal",
+  "steps": [
+    { "step": 0, "name": "landing-process", "status": "pending" },
+    { "step": 1, "name": "testimonials-tour-teaser", "status": "pending" },
+    { "step": 2, "name": "landing-assembly", "status": "pending" },
+    { "step": 3, "name": "tour-page", "status": "pending" },
+    { "step": 4, "name": "contact-api", "status": "pending" },
+    { "step": 5, "name": "consultation-form", "status": "pending" },
+    { "step": 6, "name": "seo-polish", "status": "pending" }
+  ]
+}

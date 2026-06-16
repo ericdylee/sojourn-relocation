@@ -43,6 +43,11 @@ next-env.d.ts
 # brainstorm companion (local only)
 .superpowers/
 
+# python harness artifacts
+.pytest_cache/
+__pycache__/
+*.pyc
+
 # os / editor junk
 Thumbs.db
 *.log
