@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -17,13 +18,19 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-navy-900/10 bg-white/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between sm:h-20">
-        {/* TODO Task 7: replace with <Image src="/logo.png" alt="SOJOURN KOREA" .../> */}
         <Link
           href="/"
-          className="text-lg font-bold tracking-wide text-navy-900 transition-colors hover:text-steel-500 sm:text-xl"
+          className="transition-opacity hover:opacity-80"
           onClick={() => setOpen(false)}
         >
-          SOJOURN KOREA
+          <Image
+            src="/logo.png"
+            alt="SOJOURN KOREA"
+            width={115}
+            height={96}
+            priority
+            className="h-9 w-auto sm:h-10"
+          />
         </Link>
 
         {/* Desktop nav */}
