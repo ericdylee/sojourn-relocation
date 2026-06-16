@@ -1,42 +1,42 @@
 @AGENTS.md
 
-# Working Guidelines
+# 작업 가이드라인
 
-Derived from [Andrej Karpathy's notes on LLM coding pitfalls](https://x.com/karpathy/status/2015883857489522876). Bias toward caution over speed; use judgment on trivial tasks.
+[Andrej Karpathy의 LLM 코딩 함정 정리](https://x.com/karpathy/status/2015883857489522876)에서 가져온 원칙. 속도보다 신중함에 무게를 둔다. 사소한 작업은 판단껏.
 
-## 1. Think before coding
+## 1. 코딩 전에 생각하기
 
-- State assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them — don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop and name what's confusing.
+- 가정은 명시적으로 밝힌다. 불확실하면 물어본다.
+- 해석이 여러 갈래면 모두 제시한다 — 말없이 하나 고르지 않는다.
+- 더 간단한 방법이 있으면 말한다. 필요하면 반대 의견을 낸다.
+- 불분명하면 멈추고 무엇이 헷갈리는지 짚는다.
 
-## 2. Simplicity first
+## 2. 단순함 우선
 
-Write the minimum code that solves the problem — nothing speculative.
+문제를 푸는 최소한의 코드만 작성한다 — 미리 짐작한 건 넣지 않는다.
 
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If 200 lines could be 50, rewrite it.
+- 요청하지 않은 기능은 넣지 않는다.
+- 한 번만 쓰는 코드에 추상화를 만들지 않는다.
+- 요청하지 않은 "유연성"이나 "설정 가능성"은 넣지 않는다.
+- 일어날 수 없는 상황에 대한 에러 처리는 넣지 않는다.
+- 200줄이 50줄로 줄어들 수 있다면 다시 쓴다.
 
-## 3. Surgical changes
+## 3. 외과적 수정
 
-Touch only what you must. Clean up only your own mess.
+꼭 필요한 곳만 건드린다. 자기가 만든 것만 치운다.
 
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- Remove imports/variables/functions that *your* changes orphaned — but leave pre-existing dead code alone (mention it instead).
-- Test: every changed line should trace directly to the request.
+- 인접한 코드·주석·포맷을 "개선"하지 않는다.
+- 망가지지 않은 것을 리팩터링하지 않는다.
+- 내 방식과 다르더라도 기존 스타일을 따른다.
+- *내* 수정으로 안 쓰이게 된 import·변수·함수만 제거한다 — 원래 있던 죽은 코드는 그대로 두고 언급만 한다.
+- 기준: 바뀐 모든 줄이 요청과 직접 연결돼야 한다.
 
-## 4. Goal-driven execution
+## 4. 목표 기반 실행
 
-Define success criteria, then loop until verified.
+성공 기준을 정의하고, 검증될 때까지 반복한다.
 
-- "Add validation" → write tests for invalid inputs, then make them pass.
-- "Fix the bug" → write a test that reproduces it, then make it pass.
-- "Refactor X" → ensure tests pass before and after.
+- "검증 추가" → 잘못된 입력에 대한 테스트를 먼저 쓰고, 통과시킨다.
+- "버그 수정" → 버그를 재현하는 테스트를 먼저 쓰고, 통과시킨다.
+- "X 리팩터링" → 전후로 테스트가 통과하는지 확인한다.
 
-For multi-step tasks, state a brief plan with a verification check per step.
+여러 단계 작업은 단계마다 검증 방법을 붙인 짧은 계획을 먼저 밝힌다.
