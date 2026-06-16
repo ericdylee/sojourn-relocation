@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# next.js / build
+.next/
+out/
+build/
+dist/
+
+# vercel
+.vercel/
+
+# env
+.env
+.env*.local
+.env.development
+.env.production
+
+# brainstorm companion (local only)
+.superpowers/
+
+# os / editor junk
+.DS_Store
+Thumbs.db
+*.log
