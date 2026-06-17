@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/#services", label: "Services" },
   { href: "/#process", label: "Process" },
   { href: "/tour", label: "Private Tour" },
+  { href: "/about", label: "About us" },
 ];
 
 export function Header() {
@@ -36,7 +37,7 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {navLinks.map((link) =>
-            link.href === "/tour" ? (
+            !link.href.includes("#") ? (
               <Link
                 key={link.href}
                 href={link.href}
@@ -93,7 +94,7 @@ export function Header() {
       >
         <Container className="flex flex-col gap-1 py-4">
           {navLinks.map((link) =>
-            link.href === "/tour" ? (
+            !link.href.includes("#") ? (
               <Link
                 key={link.href}
                 href={link.href}

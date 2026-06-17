@@ -7,6 +7,7 @@ const exploreLinks = [
   { href: "/#services", label: "Services" },
   { href: "/#process", label: "Process" },
   { href: "/tour", label: "Private Tours" },
+  { href: "/about", label: "About us" },
   { href: "/#contact", label: "Request a consultation" },
 ];
 
