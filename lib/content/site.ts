@@ -1,5 +1,6 @@
 export const site = {
   name: "SOJOURN KOREA",
+  url: "https://www.sojournkorea.net",
   since: 2011,
   tagline: "Total Solution for Visa and Relocation",
   subTagline: "Settle-in Easy.",

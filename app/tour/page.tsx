@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { TourHero } from "@/components/sections/tour/TourHero";
 import { WhyTour } from "@/components/sections/tour/WhyTour";
 import { BusanCourses } from "@/components/sections/tour/BusanCourses";
@@ -6,6 +7,29 @@ import { CruiseHalfFull } from "@/components/sections/tour/CruiseHalfFull";
 import { Gallery } from "@/components/sections/tour/Gallery";
 import { Section } from "@/components/ui/Section";
 import { ConsultationForm } from "@/components/form/ConsultationForm";
+import { site } from "@/lib/content/site";
+
+const description =
+  "English-speaking private day tours of Busan and Seoul — tailored half- and full-day itineraries for families, buyers, tourists and cruise guests.";
+
+export const metadata: Metadata = {
+  title: "Private Tours in Busan & Seoul",
+  description,
+  alternates: { canonical: "/tour" },
+  openGraph: {
+    title: "Private Tours in Busan & Seoul | SOJOURN KOREA",
+    description,
+    url: `${site.url}/tour`,
+    images: [
+      {
+        url: "/images/tour-busan.jpg",
+        width: 1600,
+        height: 865,
+        alt: "Busan coastline at sunset — private tours by SOJOURN KOREA",
+      },
+    ],
+  },
+};
 
 export default function TourPage() {
   return (
