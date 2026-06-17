@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SOJOURN KOREA
 
-## Getting Started
+Marketing site for [SOJOURN KOREA](https://www.sojournkorea.net) — an
+English-only visa & relocation service for expats and their employers in Busan
+and Seoul (operating since 2011), plus a private tour offering.
 
-First, run the development server:
+- `/` — relocation landing (service-first), with a scroll-scrub hero.
+- `/tour` — private Busan & Seoul day tours.
+- A single consultation form (relocation / tour branches) emails leads to
+  `rosh.yum@sojournkorea.net` via [Web3Forms](https://web3forms.com).
+
+## Stack
+
+Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS 4 · TypeScript ·
+Vitest. No database — content is static and lives in `lib/content/`.
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+
+# One-time, only if you need to (re)generate the hero scroll-scrub frames.
+# Requires ffmpeg + cwebp (webp) and ImageMagick:
+brew install webp imagemagick
+./scripts/build-hero-frames.sh   # reads the source video, writes public/hero/*
+
+npm run dev                      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The generated hero frames (`public/hero/`) and `lib/hero/frames.ts` are
+committed, so `build-hero-frames.sh` is only needed when the source video
+changes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and fill in the key:
 
-## Learn More
+```bash
+cp .env.example .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+| Variable        | Purpose                                                        |
+| --------------- | ------------------------------------------------------------- |
+| `WEB3FORMS_KEY` | Web3Forms access key the contact API uses to deliver leads.   |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Without it, the form returns a configuration error instead of sending.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Verify
 
-## Deploy on Vercel
+```bash
+npm run typecheck && npm run lint && npm run test && npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Where things live
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `lib/content/*` — all copy and data (site details, services, testimonials,
+  process steps, tour courses). Edit here to change page content.
+- `components/sections/{landing,tour}/*` — the page sections.
+- `components/ui/*` — shared primitives (`Section`, `Container`, `Button`,
+  `Reveal`).
+- `components/form/*` + `app/api/contact` + `lib/form/*` — the consultation
+  form, its API route, validation schema and email adapter.
+- `public/images`, `public/hero` — photography and hero assets
+  (`public/images/CREDITS.md` lists image licenses).
+- `docs/` — product spec, plan and the UI guide.
+
+## Deploy
+
+Deploy on [Vercel](https://vercel.com/new): import the repo and set
+`WEB3FORMS_KEY` as an environment variable. After adding the production domain
+(`www.sojournkorea.net`), update `site.url` in `lib/content/site.ts` if it
+differs — it drives `metadataBase`, the sitemap and robots.
