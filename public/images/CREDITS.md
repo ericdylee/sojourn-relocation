@@ -21,6 +21,15 @@ standalone section photos).
 | `gyeongbokgung.jpg` | Geunjeongjeon Hall, Gyeongbokgung Palace, Seoul | https://commons.wikimedia.org/wiki/File:Front_view_of_the_Imperial_Throne_Hall_Geunjeongjeon_at_Gyeongbokgung_Palace_with_blue_sky_in_Seoul.jpg | Basile Morin | CC BY-SA 4.0 |
 | `gwangjang.jpg` | Gwangjang Market entrance, Seoul | https://commons.wikimedia.org/wiki/File:Gwangjang_Market,_Seoul_01.jpg | Bgag | CC0 |
 | `seoul-city.jpg` | Seoul skyline at dusk, from Namsan | https://commons.wikimedia.org/wiki/File:Skyline_view_from_Seoul_City_(South_Korea).jpg | Laurie Nevay (Flickr) | CC BY-SA 2.0 |
+| `founder-bg.jpg` | Glass office tower from below (About — founder section backdrop) | https://commons.wikimedia.org/wiki/File:Bonn,_Post-Tower_--_2017_--_2128.jpg | Dietmar Rabich | CC BY-SA 4.0 |
+
+## Company-provided assets
+
+Not from Wikimedia — supplied by SOJOURN KOREA for use on the site:
+
+| File | Subject |
+|---|---|
+| `rosh-yum.jpg` | Portrait of Rosh Yum, Founder & Representative (About — founder greeting) |
 
 ## Processing
 

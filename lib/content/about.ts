@@ -22,7 +22,6 @@ export const about = {
     ],
     name: "Rosh Yum",
     role: "Founder & Representative",
-    initials: "RY",
   },
   partners: {
     eyebrow: "Our partners",
