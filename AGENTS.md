@@ -14,3 +14,5 @@
 - 병렬 워크플로: `.codex/`, `phases/`, `scripts/execute.py`는 별도 Codex 하네스가 관리한다 — 실행·수정하지 않는다. `docs/{PRD,ARCHITECTURE,UI_GUIDE,ADR}.md`도 그 산출물이니 참고만 하고 임의로 고치지 않는다.
 - 재사용 우선: 새 데이터나 자산을 만들기 전에 `lib/content/*`, `components/ui/*`, `public/images`, `public/hero`를 먼저 재사용한다.
 - 디자인 방향: 일반 SaaS 랜딩이 아니라 한국/부산 맥락이 드러나는 신뢰감 있는 서비스 사이트로 만든다. 장식용 그래픽만 쓰지 않고, 반응형에서 텍스트와 레이아웃이 겹치지 않게 한다.
+- React 19 함정: effect 본문에서 동기 `setState` 금지(lint 에러). 상태 변경은 `requestAnimationFrame`이나 옵저버/이벤트 콜백으로 미룬다.
+- 시각 QA 함정: 모든 `Section`은 스크롤 진입 시 `Reveal`로 페이드인하고 이미지는 lazy-load라, Playwright `fullPage` 캡처에 하단 섹션·이미지가 비어 나온다. QA 시 `*{transition:none} .opacity-0{opacity:1} .translate-y-4{transform:none}` 주입 또는 컴파일 후 재캡처한다.
