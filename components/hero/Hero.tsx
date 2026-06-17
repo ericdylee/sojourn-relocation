@@ -77,7 +77,7 @@ export function Hero() {
               : undefined
           }
         >
-          <div className="max-w-3xl">
+          <div className="max-w-3xl lg:ml-[6vw] xl:ml-[9vw]">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-steel-300 [text-shadow:0_1px_4px_rgba(8,22,45,0.8)] sm:text-sm">
               SOJOURN KOREA · SINCE 2011
             </p>
