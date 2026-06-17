@@ -29,6 +29,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    title: "Private Tours in Busan & Seoul | SOJOURN KOREA",
+    description,
+    images: ["/images/tour-busan.jpg"],
+  },
 };
 
 export default function TourPage() {
