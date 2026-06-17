@@ -16,3 +16,5 @@
 - 디자인 방향: 일반 SaaS 랜딩이 아니라 한국/부산 맥락이 드러나는 신뢰감 있는 서비스 사이트로 만든다. 장식용 그래픽만 쓰지 않고, 반응형에서 텍스트와 레이아웃이 겹치지 않게 한다.
 - React 19 함정: effect 본문에서 동기 `setState` 금지(lint 에러). 상태 변경은 `requestAnimationFrame`이나 옵저버/이벤트 콜백으로 미룬다.
 - 시각 QA 함정: 모든 `Section`은 스크롤 진입 시 `Reveal`로 페이드인하고 이미지는 lazy-load라, Playwright `fullPage` 캡처에 하단 섹션·이미지가 비어 나온다. QA 시 `*{transition:none} .opacity-0{opacity:1} .translate-y-4{transform:none}` 주입 또는 컴파일 후 재캡처한다.
+- 이미지 규율: 새 섹션 이미지는 라이선스 안전 소스(Wikimedia Commons CC)만 쓰고 `magick <f> -resize '1600x>' -strip -quality 82`로 최적화한 뒤 `public/images/CREDITS.md`에 출처를 기재한다. 회사 제공 원본은 `assets/raw/`(버전관리)에 두고 CREDITS.md에 회사 자산으로 따로 표기한다.
+- 새 라우트 추가 시: `app/<route>/page.tsx`에 페이지별 `metadata`(title·description·canonical·OG·twitter)를 두고, `app/sitemap.ts`에도 항목을 추가한다.
